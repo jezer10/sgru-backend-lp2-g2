@@ -8,6 +8,7 @@ class SgruBackendApplicationTests {
 
 	@Test
 	void contextLoads() {
+		System.out.println("MODO YAPU");
 	}
 
 }
