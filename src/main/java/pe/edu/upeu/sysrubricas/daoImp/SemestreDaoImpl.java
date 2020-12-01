@@ -28,19 +28,22 @@ public class SemestreDaoImpl implements SemestreDao{
 	@Override
 	public int create(Semestre s) {
 		// TODO Auto-generated method stub
-		return 0;
+		String sql = "declare v_sem semestre%rowtype; begin v_sem.nombre:=?; D_CRUD_SEMESTRE.SPP_INS_SEMESTRE(v_sem); end;";
+		return jdbcTemplate.update(sql, s.getNombre());
 	}
 
 	@Override
 	public int update(Semestre s) {
 		// TODO Auto-generated method stub
-		return 0;
+		String sql = "declare v_sem semestre%rowtype; begin v_sem.id_semestre:=?; v_sem.nombre:=?; v_sem.estado:=1; D_CRUD_SEMESTRE.SPP_UPD_SEMESTRE(v_sem); end;";
+		return jdbcTemplate.update(sql, s.getSemestre_id(), s.getNombre());
 	}
 
 	@Override
 	public int delete(int id) {
 		// TODO Auto-generated method stub
-		return 0;
+		String sql="declare v_id semestre.id_semestre%type; begin v_id:=?; D_CRUD_SEMESTRE.SPP_DEL_SEMESTRE(v_id); end;";
+		return jdbcTemplate.update(sql, id);
 	}
 	
 	@Override
