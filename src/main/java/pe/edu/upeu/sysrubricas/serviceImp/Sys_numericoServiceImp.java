@@ -18,31 +18,31 @@ public class Sys_numericoServiceImp implements Sys_numericoService {
 	@Override
 	public int create(Sys_numerico snum) {
 		// TODO Auto-generated method stub
-		return 0;
+		return sys_numericoDao.create(snum);
 	}
 
 	@Override
 	public int update(Sys_numerico snum) {
 		// TODO Auto-generated method stub
-		return 0;
+		return sys_numericoDao.update(snum);
 	}
 
 	@Override
 	public int delete(int id) {
 		// TODO Auto-generated method stub
-		return 0;
+		return sys_numericoDao.delete(id);
 	}
 
 	@Override
 	public Map<String, Object> read(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return sys_numericoDao.read(id);
 	}
 
 	@Override
 	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return sys_numericoDao.readAll();
 	}
 	
 }

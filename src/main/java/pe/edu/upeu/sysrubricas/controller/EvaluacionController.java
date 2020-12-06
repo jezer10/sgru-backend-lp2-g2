@@ -34,7 +34,7 @@ public class EvaluacionController {
     public int delete(@PathVariable int id) {
         return evaluacionService.delete(id);
     }
-    @PostMapping("/persona")
+    @PostMapping("/add")
     public int create (@RequestBody Evaluacion evaluacion) {
         return evaluacionService.create(evaluacion);
     }

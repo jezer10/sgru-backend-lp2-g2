@@ -28,19 +28,22 @@ public class Sys_numericoDaoImp implements Sys_numericoDao {
 	@Override
 	public int create(Sys_numerico snum) {
 		// TODO Auto-generated method stub
-		return 0;
+		String sql = "declare snum sys_numerico%rowtype; begin snum.nombre:=?; D_CRUD_SYS_NUMERICO.SPP_INS_SYS_NUMERICO(snum); end;";
+        return jdbcTemplate.update(sql, snum.getNombre());
 	}
 
 	@Override
 	public int update(Sys_numerico snum) {
 		// TODO Auto-generated method stub
-		return 0;
+		String sql = "declare snum sys_numerico%rowtype; begin snum.sys_numerico_id:=?; snum.nombre:=?; snum.estado:=1; D_CRUD_SYS_NUMERICO.SPP_UPD_SYS_NUMERICO(snum); end;";
+        return jdbcTemplate.update(sql, snum.getSys_numerico_id(), snum.getNombre());
 	}
 
 	@Override
 	public int delete(int id) {
 		// TODO Auto-generated method stub
-		return 0;
+		String sql="declare v_id sys_numerico.sys_numerico_id%type; begin v_id:=?; D_CRUD_SYS_NUMERICO.SPP_DEL_SYS_NUMERICO(v_id); end;";
+	    return jdbcTemplate.update(sql, id);
 	}
 
 	@Override

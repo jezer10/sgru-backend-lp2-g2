@@ -19,31 +19,31 @@ public class EvaluacionServiceImp implements EvaluacionService {
 	@Override
 	public int create(Evaluacion eva) {
 		// TODO Auto-generated method stub
-		return 0;
+		return evaluacionDao.create(eva);
 	}
 
 	@Override
 	public int update(Evaluacion eva) {
 		// TODO Auto-generated method stub
-		return 0;
+		return evaluacionDao.update(eva);
 	}
 
 	@Override
 	public int delete(int id) {
 		// TODO Auto-generated method stub
-		return 0;
+		return evaluacionDao.delete(id);
 	}
 
 	@Override
 	public Map<String, Object> read(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return evaluacionDao.read(id);
 	}
 
 	@Override
 	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return evaluacionDao.readAll();
 	}
 
 }

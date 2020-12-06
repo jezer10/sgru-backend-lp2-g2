@@ -16,7 +16,7 @@ import pe.edu.upeu.sysrubricas.entity.Sys_numerico;
 import pe.edu.upeu.sysrubricas.service.Sys_numericoService;
 
 @RestController
-@RequestMapping("/numerico")
+@RequestMapping("/sys_numerico")
 public class Sys_numericoController {
 	
 	@Autowired
@@ -34,7 +34,7 @@ public class Sys_numericoController {
     public int delete(@PathVariable int id) {
         return sys_numericoService.delete(id);
     }
-    @PostMapping("/persona")
+    @PostMapping("/add")
     public int create (@RequestBody Sys_numerico sys_numerico) {
         return sys_numericoService.create(sys_numerico);
     }

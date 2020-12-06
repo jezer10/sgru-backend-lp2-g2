@@ -28,19 +28,22 @@ public class EvaluacionDaoImp implements EvaluacionDao{
 	@Override
 	public int create(Evaluacion eva) {
 		// TODO Auto-generated method stub
-		return 0;
+		String sql = "declare eva evaluacion%rowtype; begin eva.nivel_rubrica_id:=?; eva.est_persona_id:=?; eva.eva_persona_id:=?; D_CRUD_EVALUACION.SPP_INS_EVALUACION(eva); end;";
+        return jdbcTemplate.update(sql, eva.getNivel_rubrica_id(), eva.getEst_persona_id(), eva.getEva_persona_id());
 	}
 
 	@Override
 	public int update(Evaluacion eva) {
 		// TODO Auto-generated method stub
-		return 0;
+		String sql = "declare eva evaluacion%rowtype; begin eva.evaluacion_id:=?; eva.nivel_rubrica_id:=?; eva.est_persona_id:=?; eva.eva_persona_id:=?; eva.estado:=1; D_CRUD_SYS_NUMERICO.SPP_UPD_EVALUACION(eva); end;";
+        return jdbcTemplate.update(sql, eva.getEvaluacion_id(), eva.getNivel_rubrica_id(), eva.getEst_persona_id(), eva.getEva_persona_id());
 	}
 
 	@Override
 	public int delete(int id) {
 		// TODO Auto-generated method stub
-		return 0;
+		String sql="declare v_id evaluacion.evaluacion_id%type; begin v_id:=?; D_CRUD_EVALUACION.SPP_DEL_EVALUACION(v_id); end;";
+	    return jdbcTemplate.update(sql, id);
 	}
 
 	@Override
