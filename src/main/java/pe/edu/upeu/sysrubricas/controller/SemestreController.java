@@ -19,8 +19,8 @@ import pe.edu.upeu.sysrubricas.service.SemestreService;
 
 
 @RestController
-@CrossOrigin(origins="*", allowedHeaders="*")
-@RequestMapping("/semestre")
+@CrossOrigin(origins="*")
+@RequestMapping("/api/semestre")
 public class SemestreController {
 	@Autowired	
 	private SemestreService semestreservice;
