@@ -35,14 +35,14 @@ public class SemestreDaoImpl implements SemestreDao{
 	@Override
 	public int update(Semestre s) {
 		// TODO Auto-generated method stub
-		String sql = "declare v_sem semestre%rowtype; begin v_sem.id_semestre:=?; v_sem.nombre:=?; v_sem.estado:=1; D_CRUD_SEMESTRE.SPP_UPD_SEMESTRE(v_sem); end;";
+		String sql = "declare v_sem semestre%rowtype; begin v_sem.semestre_id:=?; v_sem.nombre:=?; v_sem.estado:=1; D_CRUD_SEMESTRE.SPP_UPD_SEMESTRE(v_sem); end;";
 		return jdbcTemplate.update(sql, s.getSemestre_id(), s.getNombre());
 	}
 
 	@Override
 	public int delete(int id) {
 		// TODO Auto-generated method stub
-		String sql="declare v_id semestre.id_semestre%type; begin v_id:=?; D_CRUD_SEMESTRE.SPP_DEL_SEMESTRE(v_id); end;";
+		String sql="declare v_id semestre.semestre_id%type; begin v_id:=?; D_CRUD_SEMESTRE.SPP_DEL_SEMESTRE(v_id); end;";
 		return jdbcTemplate.update(sql, id);
 	}
 	
@@ -53,7 +53,7 @@ public class SemestreDaoImpl implements SemestreDao{
                 .withProcedureName("SPP_READ_SEMESTRE")
                 .declareParameters(new SqlOutParameter("dato", OracleTypes.CURSOR, new ColumnMapRowMapper()),
                         new SqlParameter("SEMESTRE_ID", Types.INTEGER));
-        SqlParameterSource in = new MapSqlParameterSource().addValue("SEMESTRE_ID", id);
+        SqlParameterSource in = new MapSqlParameterSource().addValue("ID", id);
         return simpleJdbcCall.execute(in);
     }
 

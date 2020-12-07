@@ -45,7 +45,7 @@ public class SemestreController {
 	public int delete(@PathVariable int id) {
 		return semestreservice.delete(id);
 	}	
-	@PostMapping("/add")
+	@PostMapping("/create")
 
 	public int create(@RequestBody Semestre s) {
 		return semestreservice.create(s);	

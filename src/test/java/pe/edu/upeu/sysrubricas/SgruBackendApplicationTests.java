@@ -5,15 +5,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import pe.edu.upeu.sysrubricas.dao.Nivel_logroDao;
+import pe.edu.upeu.sysrubricas.dao.SemestreDao;
 
 @SpringBootTest
 class SgruBackendApplicationTests {
 	@Autowired
-	private Nivel_logroDao nivel_logroDao;
+	private SemestreDao semestreDao;
 
 	@Test
 	void contextLoads() {
-		System.out.println(nivel_logroDao.readAll());
+		System.out.println(semestreDao.delete(22));
 		
 	}
 
