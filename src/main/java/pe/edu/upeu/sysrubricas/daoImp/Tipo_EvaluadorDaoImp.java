@@ -21,12 +21,14 @@ public class Tipo_EvaluadorDaoImp implements Tipo_EvaluadorDao{
 	@Override
 	public int create(Tipo_Evaluador te) {
 		// TODO Auto-generated method stub
-		return jdbctemplate.update("call D_CRUD_TIPO_EVALUADOR.SPP_INS_TIPO_EVALUADOR(?)", te.getNombre());
+		return jdbctemplate.update("call D_CRUD_TIPO_EVALUADOR.SPP_INS_TIPO_EVALUADOR(?,?,?)", 
+				te.getTipo_evaluador_id(), te.getNombre(), te.getEstado());
 	}
 	@Override
 	public int update(Tipo_Evaluador te) {
 		// TODO Auto-generated method stub
-		return jdbctemplate.update("call D_CRUD_TIPO_EVALUADOR.SPP_UPD_TIPO_EVALUADOR(?,?)", te.getTipo_evaluador_id(), te.getNombre());
+		return jdbctemplate.update("call D_CRUD_TIPO_EVALUADOR.SPP_UPD_TIPO_EVALUADOR(?,?,?)", 
+				te.getTipo_evaluador_id(), te.getNombre(), te.getEstado());
 	}
 	@Override
 	public int delete(int id) {

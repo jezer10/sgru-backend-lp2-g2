@@ -26,13 +26,15 @@ public class Carga_AcademicaDaoImp implements Carga_AcademicaDao{
 	@Override
 	public int create(Carga_Academica ca) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call D_CRUD_CARGA_ACADEMICA.SPP_INS_CARGA_ACADEMICA(?) ", ca.getPersona_id());
+		return jdbcTemplate.update("call D_CRUD_CARGA_ACADEMICA.SPP_INS_CARGA_ACADEMICA(?,?,?,?,?,?) ", ca.getPersona_id(),
+				     ca.getSemestre_id(), ca.getCarga_academica_id(), ca.getPlan_curso_id(),ca.getEstado(), ca.getGrupo());
 	}
 	
 	@Override
 	public int update(Carga_Academica ca) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call D_CRUD_CARGA_ACADEMICA.SPP_UPD_CARGA_ACADEMICA(?,?)", ca.getPersona_id(), ca.getCarga_academica_id());
+		return jdbcTemplate.update("call D_CRUD_CARGA_ACADEMICA.SPP_UPD_CARGA_ACADEMICA(?,?,?,?,?,?)", ca.getPersona_id(), 
+		   ca.getCarga_academica_id(), ca.getSemestre_id(), ca.getPlan_curso_id(), ca.getEstado(), ca.getGrupo());
 	}
 
 	@Override

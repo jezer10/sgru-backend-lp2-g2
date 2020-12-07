@@ -21,12 +21,14 @@ public class EstudianteDaoImp implements EstudianteDao{
 	@Override
 	public int create(Estudiante e) {
 		// TODO Auto-generated method stub
-		return jdbctemplate.update("call D_CRUD_ESTUDIANTE.SPP_INS_ESTUDIANTE(?)", e.getCodigo_estudiante());
+		return jdbctemplate.update("call D_CRUD_ESTUDIANTE.SPP_INS_ESTUDIANTE(?,?,?,?)", e.getPersona_id(),
+				e.getCodigo_estudiante(), e.getCorreo_insti(), e.getEstado());
 	}
 	@Override
 	public int update(Estudiante e) {
 		// TODO Auto-generated method stub
-		return jdbctemplate.update("call D_CRUD_ESTUDIANTE.SPP_UPD_ESTUDIANTE(?,?)", e.getPersona_id(),e.getCodigo_estudiante());
+		return jdbctemplate.update("call D_CRUD_ESTUDIANTE.SPP_UPD_ESTUDIANTE(?,?,?,?)", e.getPersona_id(),
+				e.getCodigo_estudiante(), e.getCorreo_insti(), e.getEstado());
 	}
 	@Override
 	public int delete(int id) {

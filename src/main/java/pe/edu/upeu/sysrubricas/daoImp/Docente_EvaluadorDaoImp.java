@@ -21,12 +21,14 @@ public class Docente_EvaluadorDaoImp implements Docente_EvaluadorDao{
 	@Override
 	public int create(Docente_Evaluador de) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call D_CRUD_DOCENTE_EVALUADOR.SPP_INS_DOCENTE_EVALUADOR(?)", de.getCorreo_trabajo());
+		return jdbcTemplate.update("call D_CRUD_DOCENTE_EVALUADOR.SPP_INS_DOCENTE_EVALUADOR(?,?,?,?,?)", de.getPersona_id(),
+				de.getTipo_evaluador_id(), de.getCorreo_trabajo(), de.getGrado_academico(), de.getEstado());
 	}
 	@Override
 	public int update(Docente_Evaluador de) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call D_CRUD_DOCENTE_EVALUADOR.SPP_UPD_DOCENTE_EVALUADOR(?,?)", de.getPersona_id(), de.getCorreo_trabajo());
+		return jdbcTemplate.update("call D_CRUD_DOCENTE_EVALUADOR.SPP_UPD_DOCENTE_EVALUADOR(?,?,?,?,?)", de.getPersona_id(),
+				de.getTipo_evaluador_id(), de.getCorreo_trabajo(), de.getGrado_academico(), de.getEstado());
 	}
 	@Override
 	public int delete(int id) {
