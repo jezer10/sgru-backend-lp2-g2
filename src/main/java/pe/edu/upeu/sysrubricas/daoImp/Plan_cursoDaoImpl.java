@@ -1,7 +1,6 @@
 package pe.edu.upeu.sysrubricas.daoImp;
 
 import java.sql.Types;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,9 +60,20 @@ public class Plan_cursoDaoImpl implements Plan_cursoDao{
 	}
 
 	@Override
-	public List<Map<String, Object>> list() {
-		String sql = "select * from plan_curso";
-		return jdbcTemplate.queryForList(sql);
+	public Map<String, Object> readCurso() {
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+				.withCatalogName("D_CRUD_PLAN_CURSO")
+				.withProcedureName("SPP_CURSOS")
+				.declareParameters(new SqlOutParameter("CURSOR_CUR", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+			return simpleJdbcCall.execute();
 	}
 
+	@Override
+	public Map<String, Object> readPlan() {
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+				.withCatalogName("D_CRUD_PLAN_CURSO")
+				.withProcedureName("SPP_PLANES")
+				.declareParameters(new SqlOutParameter("CURSOR_PL", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+			return simpleJdbcCall.execute();
+	}
 }

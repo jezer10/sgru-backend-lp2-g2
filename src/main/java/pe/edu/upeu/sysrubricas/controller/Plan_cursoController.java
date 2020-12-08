@@ -1,6 +1,5 @@
 package pe.edu.upeu.sysrubricas.controller;
 
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,7 @@ import pe.edu.upeu.sysrubricas.service.Plan_cursoService;
 
 @RestController
 @CrossOrigin(origins = "*",allowedHeaders = "*")
-@RequestMapping("/planescursos")
+@RequestMapping("/api/planescursos")
 public class Plan_cursoController {
 	@Autowired
 	private Plan_cursoService plan_cursoService;
@@ -43,13 +42,17 @@ public class Plan_cursoController {
 		return plan_cursoService.read(id);
 	}
 
-	@GetMapping("/test")
-	public List<Map<String, Object>> list() {
-		return plan_cursoService.list();
-	}
 	@PutMapping("/update/{id}")
 	public int update(@RequestBody Plan_curso pc, @PathVariable int id) {
 		pc.setPlan_curso_id(id);
 		return plan_cursoService.update(pc);
+	}
+	@GetMapping("/cur")
+	public Map<String, Object> readCurso() {
+		return plan_cursoService.readCurso();
+	}
+	@GetMapping("/pl")
+	public Map<String, Object> readPlan() {
+		return plan_cursoService.readPlan();
 	}
 }

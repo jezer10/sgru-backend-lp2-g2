@@ -1,7 +1,6 @@
 package pe.edu.upeu.sysrubricas.daoImp;
 
 import java.sql.Types;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,11 +58,4 @@ public class CursoDaoImpl implements CursoDao{
 			.declareParameters(new SqlOutParameter("CURSOR_CURSO", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
 	}
-
-	@Override
-	public List<Map<String, Object>> list() {
-		String sql = "select * from curso";
-		return jdbcTemplate.queryForList(sql);
-	}
-
 }

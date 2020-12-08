@@ -1,6 +1,5 @@
 package pe.edu.upeu.sysrubricas.serviceImp;
 
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,9 +39,4 @@ public class CursoServiceImpl implements CursoService{
 		return cursoDao.readAll();
 	}
 
-	@Override
-	public List<Map<String, Object>> list() {
-		return cursoDao.list();
-	}
-	
 }

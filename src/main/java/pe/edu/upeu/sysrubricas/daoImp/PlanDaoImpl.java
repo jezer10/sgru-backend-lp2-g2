@@ -59,12 +59,42 @@ public class PlanDaoImpl implements PlanDao{
 			.declareParameters(new SqlOutParameter("CURSOR_PLAN", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
 	}
-
+	
 	@Override
-	public List<Map<String, Object>> list() {
-		String sql = "select * from plan";
-		return jdbcTemplate.queryForList(sql);
+	public Map<String, Object> readCampus() {
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+				.withCatalogName("D_CRUD_PLAN")
+				.withProcedureName("SPP_CAMPUS")
+				.declareParameters(new SqlOutParameter("CURSOR_CAMPUS", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+			return simpleJdbcCall.execute();
 	}
 
+	@Override
+	public Map<String, Object> readFacultad(int id1) {
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+				.withCatalogName("D_CRUD_PLAN")
+				.withProcedureName("SPP_CAMPUS_FAC")
+				.declareParameters(new SqlOutParameter("CURSOR_CAM_F", OracleTypes.CURSOR, new ColumnMapRowMapper()), new SqlParameter("id_inf", Types.INTEGER));
+				SqlParameterSource in = new MapSqlParameterSource().addValue("IDUA", id1);
+			return simpleJdbcCall.execute(in);
+	}
 
+	@Override
+	public Map<String, Object> readPA(int id2) {
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+				.withCatalogName("D_CRUD_PLAN")
+				.withProcedureName("SPP_FACULTAD_PA")
+				.declareParameters(new SqlOutParameter("CURSOR_FAC_PA", OracleTypes.CURSOR, new ColumnMapRowMapper()), new SqlParameter("id_inf", Types.INTEGER));
+				SqlParameterSource in = new MapSqlParameterSource().addValue("IDUA", id2);
+			return simpleJdbcCall.execute(in);
+	}
+	
+	@Override
+	public Map<String, Object> readAll2() {
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+				.withCatalogName("D_CRUD_PLAN")
+				.withProcedureName("SPP_LISTARPLAN")
+				.declareParameters(new SqlOutParameter("CURSOR_LIST_PLAN", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+			return simpleJdbcCall.execute();
+	}
 }

@@ -19,7 +19,7 @@ import pe.edu.upeu.sysrubricas.service.CursoService;
 
 @RestController
 @CrossOrigin(origins = "*",allowedHeaders = "*")
-@RequestMapping("/cursos")
+@RequestMapping("/api/cursos")
 public class CursoController {
 	@Autowired
 	private CursoService cursoService;
@@ -44,10 +44,6 @@ public class CursoController {
 		return cursoService.read(id);
 	}
 
-	@GetMapping("/test")
-	public List<Map<String, Object>> list() {
-		return cursoService.list();
-	}
 	@PutMapping("/update/{id}")
 	public int update(@RequestBody Curso c, @PathVariable int id) {
 		c.setCurso_id(id);

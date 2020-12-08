@@ -1,6 +1,5 @@
 package pe.edu.upeu.sysrubricas.serviceImp;
 
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,8 +39,22 @@ public class PlanServiceImpl implements PlanService{
 	}
 
 	@Override
-	public List<Map<String, Object>> list() {
-		return planDao.list();
+	public Map<String, Object> readCampus() {
+		return planDao.readCampus();
 	}
-	
+
+	@Override
+	public Map<String, Object> readFacultad(int id1) {
+		return planDao.readFacultad(id1);
+	}
+
+	@Override
+	public Map<String, Object> readPA(int id2) {
+		return planDao.readPA(id2);
+	}
+
+	@Override
+	public Map<String, Object> readAll2() {
+		return planDao.readAll2();
+	}	
 }
