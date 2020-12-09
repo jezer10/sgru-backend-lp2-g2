@@ -42,7 +42,7 @@ public class Grupos_EstudianteDaoImp implements Grupos_EstudianteDao{
 	}
 	@Override
 	public Map<String,Object>readAll() {
-		simpleJdbcCall=new SimpleJdbcCall(jdbcTemplate).withCatalogName("D_CRUD_GRU_EST").withProcedureName("SPP_READ_GRU_EST").declareParameters(new SqlOutParameter("CURSOR_GRU_EST",OracleTypes.CURSOR,new ColumnMapRowMapper()));
+		simpleJdbcCall=new SimpleJdbcCall(jdbcTemplate).withCatalogName("D_CRUD_GRU_EST").withProcedureName("SPP_READALL_GRU_EST").declareParameters(new SqlOutParameter("CURSOR_GRU_EST",OracleTypes.CURSOR,new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
 	}
 	@Override
