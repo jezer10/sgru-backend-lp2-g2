@@ -51,12 +51,12 @@ public class PlanController {
 		return planService.readCampus();
 	}
 	@GetMapping("/facultad/{id}")
-	public Map<String, Object> readFacultad(@PathVariable int id1) {
-		return planService.read(id1);
+	public Map<String, Object> readFacultad(@PathVariable int id) {
+		return planService.readFacultad(id);
 	}
 	@GetMapping("/pa/{id}")
-	public Map<String, Object> readPA(@PathVariable int id2) {
-		return planService.read(id2);
+	public Map<String, Object> readPA(@PathVariable int id) {
+		return planService.readPA(id);
 	}
 	@PutMapping("/update/{id}")
 	public int update(@RequestBody Plan p, @PathVariable int id) {

@@ -12,4 +12,5 @@ public interface Plan_cursoService {
 	Map<String, Object> readAll();
 	Map<String, Object> readCurso();
 	Map<String, Object> readPlan();
+	Map<String, Object> readAll2();
 }

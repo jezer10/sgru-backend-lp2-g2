@@ -10,9 +10,9 @@ import pe.edu.upeu.sysrubricas.dao.Plan_cursoDao;
 @SpringBootTest
 class SgruBackendApplicationTests {
 @Autowired
-private Plan_cursoDao plan_cursoDao;
+private PlanDao planDao;
 	@Test
 	void contextLoads() {
-		System.out.println(plan_cursoDao.readCurso());
+		System.out.println(planDao.readFacultad(1));
 	}
 }

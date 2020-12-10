@@ -36,7 +36,12 @@ public class Plan_cursoController {
 	public Map<String, Object> readAll() {
 		return plan_cursoService.readAll();
 	}
-
+	
+	@GetMapping("/all2")
+	public Map<String, Object> readAll2() {
+		return plan_cursoService.readAll2();
+	}
+	
 	@GetMapping("/{id}")
 	public Map<String, Object> read(@PathVariable int id) {
 		return plan_cursoService.read(id);
