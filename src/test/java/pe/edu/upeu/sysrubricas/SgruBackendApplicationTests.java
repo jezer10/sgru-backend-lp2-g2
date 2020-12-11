@@ -3,18 +3,16 @@ package pe.edu.upeu.sysrubricas;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import pe.edu.upeu.sysrubricas.dao.Nivel_logroDao;
-import pe.edu.upeu.sysrubricas.dao.SemestreDao;
+import pe.edu.upeu.sysrubricas.dao.UtilsDao;
 
 @SpringBootTest
 class SgruBackendApplicationTests {
 	@Autowired
-	private SemestreDao semestreDao;
+	private UtilsDao utilsDao;
 
 	@Test
 	void contextLoads() {
-		System.out.println(semestreDao.delete(22));
+		System.out.println(utilsDao.readAll());
 		
 	}
 
