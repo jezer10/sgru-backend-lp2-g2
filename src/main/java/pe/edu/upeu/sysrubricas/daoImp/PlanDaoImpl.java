@@ -31,7 +31,7 @@ public class PlanDaoImpl implements PlanDao{
 
 	@Override
 	public int update(Plan p) {
-		String sql = "declare v_p plan%rowtype; begin v_p.plan_id:=?; v_p.ua_id:=?; v_p.nombre:=?; v_p.f_ini:=?; v_p.f_fin:=?; v_p.estado:=1; D_CRUD_PLAN.SPP_UPD_PLAN(v_p); end;";
+		String sql = "declare v_p plan%rowtype; begin v_p.plan_id:=?; v_p.ua_id:=?; v_p.nombre:=?; v_p.f_ini:=to_date(?,'YYYY-MM-DD'); v_p.f_fin:=to_date(?,'YYYY-MM-DD'); v_p.estado:=1; D_CRUD_PLAN.SPP_UPD_PLAN(v_p); end;";
 		return jdbcTemplate.update(sql, p.getPlan_id(), p.getUa_id(), p.getNombre(), p.getF_ini(), p.getF_fin());
 	}
 

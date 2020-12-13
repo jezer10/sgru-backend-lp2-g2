@@ -52,4 +52,9 @@ public class Plan_cursoServiceImpl implements Plan_cursoService{
 	public Map<String, Object> readAll2() {
 		return plan_cursoDao.readAll2();
 	}
+
+	@Override
+	public Map<String, Object> readCiclo() {
+		return plan_cursoDao.readCiclo();
+	}
 }

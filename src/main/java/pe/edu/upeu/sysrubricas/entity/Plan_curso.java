@@ -13,6 +13,6 @@ public class Plan_curso {
 	private int plan_curso_id;
 	private int plan_id;
 	private int curso_id;
-	private  String ciclo;
+	private int utils_id;
 	private String estado;
 }

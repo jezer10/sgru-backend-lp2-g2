@@ -60,4 +60,8 @@ public class Plan_cursoController {
 	public Map<String, Object> readPlan() {
 		return plan_cursoService.readPlan();
 	}
+	@GetMapping("/ci")
+	public Map<String, Object> readCiclo() {
+		return plan_cursoService.readCiclo();
+	}
 }

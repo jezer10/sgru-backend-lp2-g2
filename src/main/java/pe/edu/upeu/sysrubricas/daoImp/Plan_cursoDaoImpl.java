@@ -25,13 +25,13 @@ public class Plan_cursoDaoImpl implements Plan_cursoDao{
 	@Override
 	public int create(Plan_curso pc) {
 		String sql = "declare v_pc plan_curso%rowtype; begin v_pc.plan_id:=?; v_pc.curso_id:=?; v_pc.ciclo:=?; D_CRUD_PLAN_CURSO.SPP_INS_PLAN_CURSO(v_pc); end;";
-		return jdbcTemplate.update(sql, pc.getPlan_id(), pc.getCurso_id(), pc.getCiclo());
+		return jdbcTemplate.update(sql, pc.getPlan_id(), pc.getCurso_id(), pc.getUtils_id());
 	}
 
 	@Override
 	public int update(Plan_curso pc) {
 		String sql = "declare v_pc plan_curso%rowtype; begin v_pc.plan_curso_id:=?; v_pc.plan_id=?; v_pc.curso_id:=?; v_pc.ciclo:=?; pc.estado:=1; D_CRUD_PLAN_CURSO.SPP_UPD_PLAN_CURSO(v_pc); end;";
-		return jdbcTemplate.update(sql, pc.getPlan_curso_id(), pc.getPlan_id(), pc.getCurso_id(), pc.getCiclo());
+		return jdbcTemplate.update(sql, pc.getPlan_curso_id(), pc.getPlan_id(), pc.getCurso_id(), pc.getUtils_id());
 	}
 
 	@Override
@@ -83,6 +83,15 @@ public class Plan_cursoDaoImpl implements Plan_cursoDao{
 				.withCatalogName("D_CRUD_PLAN_CURSO")
 				.withProcedureName("SPP_LISTAR_PLAN_CURSO_N")
 				.declareParameters(new SqlOutParameter("CURSOR_PLAN_CURSO_N", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+			return simpleJdbcCall.execute();
+	}
+
+	@Override
+	public Map<String, Object> readCiclo() {
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+				.withCatalogName("D_CRUD_UTILS")
+				.withProcedureName("SPP_READALL_CICLO")
+				.declareParameters(new SqlOutParameter("CURSOR_CICLO", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 			return simpleJdbcCall.execute();
 	}
 }
