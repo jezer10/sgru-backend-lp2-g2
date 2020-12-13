@@ -24,13 +24,13 @@ public class Plan_cursoDaoImpl implements Plan_cursoDao{
 	private SimpleJdbcCall simpleJdbcCall;
 	@Override
 	public int create(Plan_curso pc) {
-		String sql = "declare v_pc plan_curso%rowtype; begin v_pc.plan_id:=?; v_pc.curso_id:=?; v_pc.ciclo:=?; D_CRUD_PLAN_CURSO.SPP_INS_PLAN_CURSO(v_pc); end;";
+		String sql = "declare v_pc plan_curso%rowtype; begin v_pc.plan_id:=?; v_pc.curso_id:=?; v_pc.utils_id:=?; D_CRUD_PLAN_CURSO.SPP_INS_PLAN_CURSO(v_pc); end;";
 		return jdbcTemplate.update(sql, pc.getPlan_id(), pc.getCurso_id(), pc.getUtils_id());
 	}
 
 	@Override
 	public int update(Plan_curso pc) {
-		String sql = "declare v_pc plan_curso%rowtype; begin v_pc.plan_curso_id:=?; v_pc.plan_id=?; v_pc.curso_id:=?; v_pc.ciclo:=?; pc.estado:=1; D_CRUD_PLAN_CURSO.SPP_UPD_PLAN_CURSO(v_pc); end;";
+		String sql = "declare v_pc plan_curso%rowtype; begin v_pc.plan_curso_id:=?; v_pc.plan_id:=?; v_pc.curso_id:=?; v_pc.utils_id:=?; v_pc.estado:=1; D_CRUD_PLAN_CURSO.SPP_UPD_PLAN_CURSO(v_pc); end;";
 		return jdbcTemplate.update(sql, pc.getPlan_curso_id(), pc.getPlan_id(), pc.getCurso_id(), pc.getUtils_id());
 	}
 
