@@ -6,15 +6,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+
+
+
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Curso {
-	private int curso_id;
-	private String nombre;
-	private String cr;
-	private String ht;
-	private String hp;
-	private String estado;
+public class NivelRubrica_v {
+    private int nivel_rubrica_id;
+    private int indicador_id;
+    private String nombre;
+    private Double peso;
+    private String descripcion;
 }

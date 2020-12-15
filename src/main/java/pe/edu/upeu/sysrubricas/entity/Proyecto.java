@@ -7,14 +7,12 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @ToString
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
-public class Curso {
-	private int curso_id;
-	private String nombre;
-	private String cr;
-	private String ht;
-	private String hp;
-	private String estado;
+public class Proyecto {
+    private int py_id;
+    private String lider;
+    private String ciclo;
+    private String semestre;
 }

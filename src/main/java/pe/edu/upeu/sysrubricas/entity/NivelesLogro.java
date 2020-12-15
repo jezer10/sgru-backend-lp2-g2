@@ -10,11 +10,9 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Curso {
-	private int curso_id;
-	private String nombre;
-	private String cr;
-	private String ht;
-	private String hp;
-	private String estado;
+public class NivelesLogro {
+    private int nivel_logro_id;
+    private String nombre;
+    private Double peso;
+    private String estado;
 }

@@ -1,20 +1,19 @@
 package pe.edu.upeu.sysrubricas.entity;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.math.BigDecimal;
+
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Curso {
-	private int curso_id;
-	private String nombre;
-	private String cr;
-	private String ht;
-	private String hp;
-	private String estado;
+public class Alternativa {
+    private BigDecimal alternativa_id;
+    private BigDecimal pregunta_id;
+    private String correcta_estado;
+    private String nombre;
 }
