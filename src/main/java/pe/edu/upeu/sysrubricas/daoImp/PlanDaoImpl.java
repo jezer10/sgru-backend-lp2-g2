@@ -97,4 +97,5 @@ public class PlanDaoImpl implements PlanDao{
 				.declareParameters(new SqlOutParameter("CURSOR_LIST_PLAN", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 			return simpleJdbcCall.execute();
 	}
+	
 }

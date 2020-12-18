@@ -10,4 +10,5 @@ public interface CursoDao {
 	int delete(int id);
 	Map<String, Object> read(int id);
 	Map<String, Object> readAll();
+	
 }
