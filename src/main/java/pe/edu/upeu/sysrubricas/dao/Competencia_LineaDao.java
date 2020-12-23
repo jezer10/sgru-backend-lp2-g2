@@ -13,4 +13,6 @@ public interface Competencia_LineaDao {
 	Map<String,Object> read(int id);
 	List<Map<String, Object>>readAll();
 
+	
+	
 }

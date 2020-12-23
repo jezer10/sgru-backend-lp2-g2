@@ -34,6 +34,8 @@ public class Unidad_AcademicaDaoImpl implements Unidad_AcademicaDao{
 				.declareParameters(new SqlOutParameter("CURSOR_UNIDAD_ACADEMICA", OracleTypes.CURSOR, 
 						new ColumnMapRowMapper()));
 				return simpleJdbcCall.execute();
+				
+				
 	}
 
 }
