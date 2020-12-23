@@ -14,4 +14,8 @@ public interface Plan_cursoDao {
 	Map<String, Object> readPlan();
 	Map<String, Object> readAll2();
 	Map<String, Object> readCiclo();
+	Map<String, Object> readCampus();
+	Map<String, Object> readFacultad(int id1);
+	Map<String, Object> readPA(int id2);
+	Map<String, Object> readPlan2(int id3);
 }

@@ -57,4 +57,24 @@ public class Plan_cursoServiceImpl implements Plan_cursoService{
 	public Map<String, Object> readCiclo() {
 		return plan_cursoDao.readCiclo();
 	}
+
+	@Override
+	public Map<String, Object> readCampus() {
+		return plan_cursoDao.readCampus();
+	}
+
+	@Override
+	public Map<String, Object> readFacultad(int id1) {
+		return plan_cursoDao.readFacultad(id1);
+	}
+
+	@Override
+	public Map<String, Object> readPA(int id2) {
+		return plan_cursoDao.readPA(id2);
+	}
+
+	@Override
+	public Map<String, Object> readPlan2(int id3) {
+		return plan_cursoDao.readPlan2(id3);
+	}
 }

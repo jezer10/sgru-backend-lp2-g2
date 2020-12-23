@@ -64,4 +64,20 @@ public class Plan_cursoController {
 	public Map<String, Object> readCiclo() {
 		return plan_cursoService.readCiclo();
 	}
+	@GetMapping("/campus")
+	public Map<String, Object> readCampus() {
+		return plan_cursoService.readCampus();
+	}
+	@GetMapping("/facultad/{id}")
+	public Map<String, Object> readFacultad(@PathVariable int id) {
+		return plan_cursoService.readFacultad(id);
+	}
+	@GetMapping("/pa/{id}")
+	public Map<String, Object> readPA(@PathVariable int id) {
+		return plan_cursoService.readPA(id);
+	}
+	@GetMapping("/plan/{id}")
+	public Map<String, Object> readPlan2(@PathVariable int id) {
+		return plan_cursoService.readPlan2(id);
+	}
 }
