@@ -16,49 +16,46 @@ import org.springframework.web.bind.annotation.RestController;
 import pe.edu.upeu.sysrubricas.entity.Semestre;
 import pe.edu.upeu.sysrubricas.service.SemestreService;
 
-
-
 @RestController
-@CrossOrigin(origins="*")
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/semestre")
 public class SemestreController {
-	@Autowired	
+	@Autowired
 	private SemestreService semestreservice;
-	
+
 	@GetMapping("/all")
 
 	public Map<String, Object> read() {
-		
-			return semestreservice.readAll();
-		}
 
-	
+		return semestreservice.readAll();
+	}
+
 	@GetMapping("/{id}")
 
 	public Map<String, Object> read(@PathVariable int id) {
 		return semestreservice.read(id);
-		
-		}
-	
+
+	}
+
 	@DeleteMapping("/delete/{id}")
 
 	public int delete(@PathVariable int id) {
 		return semestreservice.delete(id);
-	}	
+	}
+
 	@PostMapping("/create")
 
 	public int create(@RequestBody Semestre s) {
-		return semestreservice.create(s);	
-		
+		return semestreservice.create(s);
+
 	}
+
 	@PutMapping("/update/{id}")
 
 	public int update(@RequestBody Semestre s, @PathVariable int id) {
 		s.setSemestre_id(id);
 		return semestreservice.update(s);
-	
-	
-	}	
-	
-}
 
+	}
+
+}
