@@ -9,6 +9,8 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
+
+
 import pe.edu.upeu.sysrubricas.dao.RubricaDao;
 import pe.edu.upeu.sysrubricas.entity.*;
 
@@ -129,17 +131,8 @@ public class RubricaDaoImp implements RubricaDao {
         return simpleJdbcCall.executeObject(List.class,in);
     }
 
-    @Override
-    public List<Admin_v> getVistaAdmin(int idpro, int idpc) {
-        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
-                .withCatalogName("D_CRUD_HEARTH_SHAKER")
-                .withProcedureName("SPP_GET_VISTA_ADMIN")
-                .returningResultSet("OUT_VISTA_ADMIN",
-                        BeanPropertyRowMapper.newInstance(Admin_v.class));
-        SqlParameterSource in = new MapSqlParameterSource()
-                .addValue("IDPRO", idpro)
-                .addValue("IDPC",idpc);
-        return simpleJdbcCall.executeObject(List.class,in);
-    }
+	
+
+    
 }
 

@@ -80,12 +80,7 @@ public class RubricaController {
         return new ResponseEntity<>(nivelRubrica,HttpStatus.CREATED);
 
     }
-    @GetMapping("admin/{idpro}/{idpc}")
-    public Map<String,List<Admin_v>> getVistaAdmin(@PathVariable int idpro,@PathVariable  int idpc){
-        Map<String,List<Admin_v>> admin_v = new HashMap<>();
-        admin_v.put("vista_admin", rubricaService.getVistaAdmin(idpro,idpc));
-        return admin_v;
-    }
+   
 
 
 }
