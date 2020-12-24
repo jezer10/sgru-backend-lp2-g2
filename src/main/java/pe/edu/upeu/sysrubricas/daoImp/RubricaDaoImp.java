@@ -69,7 +69,7 @@ public class RubricaDaoImp implements RubricaDao {
                 .withProcedureName("SPP_GET_RUBRICA")
                 .returningResultSet("OUT_RUBRICA",
                         BeanPropertyRowMapper.newInstance(Rubrica_v.class));
-        Map in = Collections.singletonMap("IDP",id);
+        Map<String,Object> in = Collections.singletonMap("IDP",id);
 
         return simpleJdbcCall.executeObject(List.class,in);
     }
@@ -81,7 +81,7 @@ public class RubricaDaoImp implements RubricaDao {
                 .withProcedureName("SPP_GET_ONLYRUBRICA")
                 .returningResultSet("OUT_RUBRIC",
                         BeanPropertyRowMapper.newInstance(Rubrica_v.class));
-        Map in = Collections.singletonMap("IDRUBRIC",id);
+        Map<String,Object> in = Collections.singletonMap("IDRUBRIC",id);
 
         return simpleJdbcCall.executeObject(List.class,in);
     }
@@ -105,7 +105,7 @@ public class RubricaDaoImp implements RubricaDao {
                 .withProcedureName("SPP_GET_ONLYINDICADOR")
                 .returningResultSet("OUT_INDI",
                         BeanPropertyRowMapper.newInstance(Indicador.class));
-        Map in = Collections.singletonMap("IDINDI",id);
+        Map<String,Object> in = Collections.singletonMap("IDINDI",id);
         return simpleJdbcCall.executeObject(List.class,in);
     }
 
@@ -126,7 +126,7 @@ public class RubricaDaoImp implements RubricaDao {
                 .withProcedureName("SPP_GET_NIVEL_RUBRICA")
                 .returningResultSet("OUT_NIVEL_RUBRICA",
                         BeanPropertyRowMapper.newInstance(NivelRubrica_v.class));
-        Map in = Collections.singletonMap("IDIN",id);
+        Map<String,Object> in = Collections.singletonMap("IDIN",id);
         return simpleJdbcCall.executeObject(List.class,in);
     }
 

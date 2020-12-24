@@ -20,9 +20,6 @@ import java.util.List;
 import java.util.Map;
 
 
-
-
-
 @Repository
 public class AlternativaDaoImp implements AlternativaDao {
 
@@ -42,7 +39,7 @@ public class AlternativaDaoImp implements AlternativaDao {
                 .declareParameters(
                         new SqlParameter("IN_ALTERNATIVA", OracleTypes.STRUCT,"D_CRUD_ALTERNATIVAS.ALTERNATIVA_TYPE")
                 );
-        Map in = Collections.singletonMap("IN_ALTERNATIVA", alternativa);
+        Map<String,Object> in = Collections.singletonMap("IN_ALTERNATIVA", alternativa);
         simpleJdbcCall.execute(in);
     }
 
@@ -54,7 +51,7 @@ public class AlternativaDaoImp implements AlternativaDao {
                 .declareParameters(
                         new SqlParameter("P_ALTERNATIVA", OracleTypes.STRUCT,"D_CRUD_ALTERNATIVAS.ALTERNATIVA_TYPE")
                 );
-        Map in = Collections.singletonMap("IN_ALTERNATIVA",alternativa);
+        Map<String,Object> in = Collections.singletonMap("IN_ALTERNATIVA",alternativa);
         simpleJdbcCall.execute(in);
     }
 
@@ -66,7 +63,7 @@ public class AlternativaDaoImp implements AlternativaDao {
                 .declareParameters(
                         new SqlOutParameter("OUT_ALTERNATIVAS", Types.ARRAY,"D_CRUD_ALTERNATIVAS.ALTERNATIVAS_TYPE")
                 );
-        Map in = Collections.singletonMap("IN_PRE_ID",id);
+        Map<String,Object> in = Collections.singletonMap("IN_PRE_ID",id);
         Map<?,?> out = simpleJdbcCall.execute(in);
         List<Alternativa> alternativas = new ArrayList<>();
 
@@ -96,7 +93,7 @@ public class AlternativaDaoImp implements AlternativaDao {
                 .declareParameters(
                         new SqlParameter("IN_ALTERNATIVA_ID", OracleTypes.NUMBER)
                 );
-        Map in = Collections.singletonMap("IN_ALTERNATIVA_ID",id);
+        Map<String,Object> in = Collections.singletonMap("IN_ALTERNATIVA_ID",id);
         simpleJdbcCall.execute(in);
     }
 

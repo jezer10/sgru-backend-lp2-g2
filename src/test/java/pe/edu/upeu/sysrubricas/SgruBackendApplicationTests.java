@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import pe.edu.upeu.sysrubricas.dao.PlanDao;
-import pe.edu.upeu.sysrubricas.dao.Plan_cursoDao;
 
 @SpringBootTest
 class SgruBackendApplicationTests {

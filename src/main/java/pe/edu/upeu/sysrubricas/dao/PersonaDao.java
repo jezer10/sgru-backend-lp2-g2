@@ -1,8 +1,20 @@
 package pe.edu.upeu.sysrubricas.dao;
 
-import java.util.List;
+
 import java.util.Map;
 
+
+import pe.edu.upeu.sysrubricas.entity.Persona;
+
+
 public interface PersonaDao {
-	List<Map<String, Object>> readall();
+	void create(Persona p);
+
+	void update(Persona p);
+
+	int delete(int id);
+
+	Persona read(int id);
+
+	Map<String, Object> readAll();
 }

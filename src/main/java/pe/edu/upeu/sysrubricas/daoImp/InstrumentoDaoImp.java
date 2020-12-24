@@ -23,13 +23,10 @@ import java.util.Map;
 
 @Repository
 public class InstrumentoDaoImp implements InstrumentoDao {
-    private Connection conn;
-    private CallableStatement callableStmt;
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
     private SimpleJdbcCall simpleJdbcCall;
-
 
     @Override
     public void createInstrumento(SqlInstrumento instrumento) {
@@ -37,7 +34,7 @@ public class InstrumentoDaoImp implements InstrumentoDao {
                 .withCatalogName("D_CRUD_INSTRUMENTO")
                 .withProcedureName("SPP_CREATE_INSTRUMENTO")
                 .declareParameters(new SqlParameter("INS", OracleTypes.STRUCT,"INSTRUMENTO_TYPE"));
-        Map in = Collections.singletonMap("INS",instrumento);
+        Map<String,Object> in = Collections.singletonMap("INS",instrumento);
         simpleJdbcCall.execute(in);
 
     }
@@ -48,7 +45,7 @@ public class InstrumentoDaoImp implements InstrumentoDao {
                 .withCatalogName("D_CRUD_INSTRUMENTO")
                 .withProcedureName("SPP_UPDATE_INSTRUMENTO")
                 .declareParameters(new SqlParameter("INS",OracleTypes.STRUCT,"INSTRUMENTO_TYPE"));
-        Map in = Collections.singletonMap("INS",instrumento);
+        Map<String,Object> in = Collections.singletonMap("INS",instrumento);
         simpleJdbcCall.execute(in);
     }
 
@@ -62,7 +59,7 @@ public class InstrumentoDaoImp implements InstrumentoDao {
                 );
 
 
-        Map in = Collections.singletonMap("INS_ID",id);
+        Map<String,Object> in = Collections.singletonMap("INS_ID",id);
         return simpleJdbcCall.executeObject(Instrumento.class,in);
     }
 

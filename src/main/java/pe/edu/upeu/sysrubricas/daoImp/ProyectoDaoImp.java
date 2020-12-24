@@ -29,7 +29,7 @@ public class ProyectoDaoImp implements ProyectoDao {
                 .withProcedureName("SPP_GET_PROYECTOSXSEM")
                 .returningResultSet("OUT_PROYECTO",
                         BeanPropertyRowMapper.newInstance(Proyecto.class));
-        Map in = Collections.singletonMap("IDSEM",id);
+        Map<String,Object> in = Collections.singletonMap("IDSEM",id);
         return simpleJdbcCall.executeObject(List.class,in);
     }
 
@@ -40,7 +40,7 @@ public class ProyectoDaoImp implements ProyectoDao {
                 .withProcedureName("SPP_GET_DETALLE_PROYECTO")
                 .returningResultSet("OUT_DETALLE",
                         BeanPropertyRowMapper.newInstance(Curso.class));
-        Map in = Collections.singletonMap("IDPRO",id);
+        Map<String,Object> in = Collections.singletonMap("IDPRO",id);
         return simpleJdbcCall.executeObject(List.class,in);
     }
 
@@ -51,7 +51,7 @@ public class ProyectoDaoImp implements ProyectoDao {
                 .withProcedureName("SPP_GET_PROYECTO")
                 .returningResultSet("OUT_ONLY_PROYECTO",
                         BeanPropertyRowMapper.newInstance(Proyecto.class));
-        Map in = Collections.singletonMap("IDPRO",id);
+        Map<String,Object> in = Collections.singletonMap("IDPRO",id);
         return simpleJdbcCall.executeObject(List.class,in);
     }
 }

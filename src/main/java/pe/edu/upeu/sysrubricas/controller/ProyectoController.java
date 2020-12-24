@@ -12,10 +12,6 @@ import java.util.List;
 import java.util.Map;
 
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
-
-
-
 @RestController
 @RequestMapping(value = "/api/proyecto", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ProyectoController {
@@ -33,12 +29,12 @@ public class ProyectoController {
     }
 
     @GetMapping("union/{id}")
-    public ArrayList getUnion(@PathVariable int id){
+    public ArrayList<Object> getUnion(@PathVariable int id){
         Map<String,List<Proyecto>> proyecto = new HashMap<>();
         Map<String,List<Curso>> cursos = new HashMap<>();
         proyecto.put("proyecto",proyectoService.comoBuscar(id));
         cursos.put("cursos",proyectoService.getCursosxPy(id));
-        ArrayList loba = new ArrayList();
+        ArrayList<Object> loba = new ArrayList<>();
         loba.add(proyecto);
         loba.add(cursos);
 
