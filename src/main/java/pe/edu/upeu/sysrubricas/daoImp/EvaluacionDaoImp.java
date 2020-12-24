@@ -35,7 +35,7 @@ public class EvaluacionDaoImp implements EvaluacionDao{
 	@Override
 	public int update(Evaluacion eva) {
 		// TODO Auto-generated method stub
-		String sql = "declare eva evaluacion%rowtype; begin eva.evaluacion_id:=?; eva.nivel_rubrica_id:=?; eva.est_persona_id:=?; eva.eva_persona_id:=?; eva.estado:=1; D_CRUD_SYS_NUMERICO.SPP_UPD_EVALUACION(eva); end;";
+		String sql = "declare eva evaluacion%rowtype; begin eva.evaluacion_id:=?; eva.nivel_rubrica_id:=?; eva.est_persona_id:=?; eva.eva_persona_id:=?; eva.estado:=1; D_CRUD_EVALUACION.SPP_UPD_EVALUACION(eva); end;";
         return jdbcTemplate.update(sql, eva.getEvaluacion_id(), eva.getNivel_rubrica_id(), eva.getEst_persona_id(), eva.getEva_persona_id());
 	}
 
