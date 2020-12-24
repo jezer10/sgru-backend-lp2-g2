@@ -19,7 +19,7 @@ public class Proyecto_cargaController {
 	@Autowired
 	Proyecto_cargaService proyecto_cargaService;
 	
-	@GetMapping
+	@GetMapping("/lista")
 	public Map<String, List<Proyecto_carga>> cur(){
 		Map<String, List<Proyecto_carga>> cur= new Hashtable<>();
 		cur.put("c", proyecto_cargaService.Cursopy());
