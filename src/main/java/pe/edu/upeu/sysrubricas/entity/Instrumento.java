@@ -15,4 +15,5 @@ public class Instrumento {
      int semestre_id;
      int cl_id;
      int estado;
+     
 }

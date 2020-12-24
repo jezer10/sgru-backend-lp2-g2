@@ -17,11 +17,11 @@ import org.springframework.stereotype.Repository;
 import com.fasterxml.jackson.databind.BeanProperty;
 
 import oracle.jdbc.OracleTypes;
-import pe.edu.upeu.sysrubricas.dao.CursoDao;
-import pe.edu.upeu.sysrubricas.entity.Curso;
+import pe.edu.upeu.sysrubricas.dao.Proyecto_cargaDao;
+import pe.edu.upeu.sysrubricas.entity.Proyecto_carga;
 
 @Repository
-public class CursoDaoImp implements CursoDao{
+public class Proyecto_cargaDaoImp implements Proyecto_cargaDao{
 	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
@@ -29,9 +29,9 @@ public class CursoDaoImp implements CursoDao{
 	private SimpleJdbcCall simpleJdbcCall;
 
 	@Override
-	public List<Curso> Cursopy() {
+	public List<Proyecto_carga> Cursopy() {
 		 simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withCatalogName("D_CRUD_AVANCE_PY")
-	                .withProcedureName("SPP_CURSO_AVANCE_PY").returningResultSet("CURSOR_CURSO", BeanPropertyRowMapper.newInstance(Curso.class));
+	                .withProcedureName("SPP_CURSO_AVANCE_PY").returningResultSet("CURSOR_CURSO", BeanPropertyRowMapper.newInstance(Proyecto_carga.class));
 	        return simpleJdbcCall.executeObject(List.class, Collections.emptyMap());
 	}
 	

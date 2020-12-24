@@ -1,9 +1,20 @@
 package pe.edu.upeu.sysrubricas.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class Curso {
-	int py_carga_id;
-	String curso;
+	private int curso_id;
+	private String nombre;
+	private String cr;
+	private String ht;
+	private String hp;
+	private String estado;
+
 }
