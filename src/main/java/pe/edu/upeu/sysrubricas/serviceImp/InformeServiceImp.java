@@ -41,4 +41,16 @@ public class InformeServiceImp implements InformeService{
 		return informeDao.readAllInformeUAPA(id);
 	}
 
+	@Override
+	public Map<String, Object> readAllInformeS(int id) {
+		// TODO Auto-generated method stub
+		return informeDao.readAllInformeS(id);
+	}
+
+	@Override
+	public Map<String, Object> readAllInformeC(int id) {
+		// TODO Auto-generated method stub
+		return informeDao.readAllInformeC(id);
+	}
+
 }

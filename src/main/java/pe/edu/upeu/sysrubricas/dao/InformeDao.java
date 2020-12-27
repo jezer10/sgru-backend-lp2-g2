@@ -8,6 +8,10 @@ public interface InformeDao {
 	Map<String,Object> readAllInformeUAC();
 	Map<String, Object> readAllInformeUAF(int id);
 	Map<String, Object> readAllInformeUAPA(int id);
+	Map<String, Object> readAllInformeS(int id);
+	Map<String, Object> readAllInformeC(int id);
+
+
 
 
 }
