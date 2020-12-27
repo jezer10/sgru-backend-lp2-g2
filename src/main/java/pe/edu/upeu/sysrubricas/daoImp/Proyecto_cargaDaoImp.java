@@ -1,24 +1,15 @@
 package pe.edu.upeu.sysrubricas.daoImp;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.parsing.BeanComponentDefinition;
-import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.ColumnMapRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.SqlOutParameter;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
-
-import com.fasterxml.jackson.databind.BeanProperty;
-
-import oracle.jdbc.OracleTypes;
 import pe.edu.upeu.sysrubricas.dao.Proyecto_cargaDao;
 import pe.edu.upeu.sysrubricas.entity.Proyecto_carga;
+
+import java.util.Collections;
+import java.util.List;
 
 @Repository
 public class Proyecto_cargaDaoImp implements Proyecto_cargaDao{

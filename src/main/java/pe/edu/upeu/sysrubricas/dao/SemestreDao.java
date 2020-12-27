@@ -1,4 +1,5 @@
 package pe.edu.upeu.sysrubricas.dao;
+import java.util.List;
 import java.util.Map;
 
 import pe.edu.upeu.sysrubricas.entity.Semestre;
@@ -9,4 +10,5 @@ public interface SemestreDao {
 	int delete(int id);
 	Map<String,Object> read(int id);
 	Map<String,Object>readAll();
+	List<Semestre> getSemestres();
 }

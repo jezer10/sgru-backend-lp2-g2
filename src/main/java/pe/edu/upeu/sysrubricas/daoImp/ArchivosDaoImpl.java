@@ -1,14 +1,14 @@
 package pe.edu.upeu.sysrubricas.daoImp;
 
-import java.util.List;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-
 import pe.edu.upeu.sysrubricas.dao.ArchivosDao;
 import pe.edu.upeu.sysrubricas.entity.Archivos;
+
+import java.util.List;
+import java.util.Map;
+
 @Repository
 public class ArchivosDaoImpl implements ArchivosDao{
 @Autowired

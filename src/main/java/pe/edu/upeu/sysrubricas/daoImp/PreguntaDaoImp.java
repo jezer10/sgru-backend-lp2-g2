@@ -50,7 +50,7 @@ public class PreguntaDaoImp implements PreguntaDao {
                 .withProcedureName("SPP_GET_PREGUNTAXINSTRUMENTO")
                 .declareParameters(
                         new SqlOutParameter("OUT_PREGUNTAS_INS",Types.ARRAY,"D_CRUD_PREGUNTAS.PREGUNTAS_TYPE"));
-        Map<String,Object> in = Collections.singletonMap("INS_ID",id);
+        Map in = Collections.singletonMap("INS_ID",id);
         Map<?,?> out = simpleJdbcCall.execute(in);
         List<Pregunta> preguntas = new ArrayList<>();
 
@@ -67,9 +67,9 @@ public class PreguntaDaoImp implements PreguntaDao {
             Pregunta pregunta = new Pregunta();
             pregunta.setPregunta_id((BigDecimal) obj[0]);
             pregunta.setInstrumento_id((BigDecimal) obj[1]);
-            pregunta.setNombre(this.convert((Clob) obj[2]));
-            pregunta.setPeso((BigDecimal) obj[3]);
-            pregunta.setEstado((String) obj[4]);
+            pregunta.setNombre((String) obj[4]);
+            pregunta.setPeso((BigDecimal) obj[2]);
+            pregunta.setEstado((String) obj[3]);
 
 
             preguntas.add(pregunta);
@@ -85,9 +85,9 @@ public class PreguntaDaoImp implements PreguntaDao {
                 .withCatalogName("D_CRUD_PREGUNTAS")
                 .withFunctionName("FUN_GET_PREGUNTA")
                 .declareParameters(
-                        new SqlOutParameter("V_PREGUNTA", OracleTypes.STRUCT,"D_CRUD_PREGUNTAS.PREGUNTA_TYPE",
+                        new SqlOutParameter("V_PREGUNTA",OracleTypes.STRUCT,"D_CRUD_PREGUNTAS.PREGUNTA_TYPE",
                                 new SqlReturnStruct(Pregunta.class)));
-        Map<String,Object> in = Collections.singletonMap("IN_PREGUNTA_ID",id);
+        Map in = Collections.singletonMap("IN_PREGUNTA_ID",id);
         return simpleJdbcCall.executeFunction(Pregunta.class,in);
     }
 
@@ -100,7 +100,7 @@ public class PreguntaDaoImp implements PreguntaDao {
                         new SqlParameter("IN_PREGUNTA",OracleTypes.STRUCT,"D_CRUD_PREGUNTAS.PREGUNTAS_TYPE"),
                         new SqlOutParameter("OUT_PREGUNTA_ID",OracleTypes.NUMBER));
 
-        Map<String,Object> in = Collections.singletonMap("IN_PREGUNTA",pregunta);
+        Map in = Collections.singletonMap("IN_PREGUNTA",pregunta);
         Map<?,?> out = simpleJdbcCall.execute(in);
         BigDecimal id = (BigDecimal) out.get("OUT_PREGUNTA_ID");
         return id;
@@ -113,7 +113,7 @@ public class PreguntaDaoImp implements PreguntaDao {
                 .withProcedureName("SPP_UPDATE_PREGUNTA")
                 .declareParameters(
                         new SqlParameter("P_PREGUNTA",OracleTypes.STRUCT,"D_CRUD_PREGUNTAS.PREGUNTAS_TYPE"));
-        Map<String,Object> in = Collections.singletonMap("IN_PREGUNTA",pregunta);
+        Map in = Collections.singletonMap("IN_PREGUNTA",pregunta);
         simpleJdbcCall.execute(in);
     }
 
@@ -121,11 +121,11 @@ public class PreguntaDaoImp implements PreguntaDao {
     public void deletePregunta(int id) {
         simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
                 .withCatalogName("D_CRUD_PREGUNTAS")
-                .withProcedureName("SPP_DELETE_PREGUNTA_ALTERNATIVA")
+                .withProcedureName("SPP_DELETE_PREGUNTA")
                 .declareParameters(
                         new SqlParameter("IN_PREGUNTA_ID",OracleTypes.NUMBER)
                 );
-        Map<String,Object> in = Collections.singletonMap("IN_PREGUNTA_ID",id);
+        Map in = Collections.singletonMap("IN_PREGUNTA_ID",id);
         simpleJdbcCall.execute(in);
     }
 

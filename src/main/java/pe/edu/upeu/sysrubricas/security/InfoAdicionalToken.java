@@ -16,6 +16,7 @@ import com.google.gson.Gson;
 import pe.edu.upeu.sysrubricas.dao.AccesoDao;
 import pe.edu.upeu.sysrubricas.dao.PersonaDao;
 import pe.edu.upeu.sysrubricas.dao.UsuarioDao;
+import pe.edu.upeu.sysrubricas.entity.Acceso;
 import pe.edu.upeu.sysrubricas.entity.Persona;
 import pe.edu.upeu.sysrubricas.entity.Usuario;
 
@@ -34,11 +35,12 @@ Gson g = new Gson();
 	public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
 		Usuario user = usuarioDao.read(authentication.getName());
 		Persona per = personaDao.read(user.getPersona_id());
-		List<Map<String,Object>> accesos = new ArrayList<>();
-		accesos = accesoDao.read(user.getPersona_id());
+		List<Acceso> accesos = new ArrayList<>();
+		accesos = accesoDao.getAccesosbyid(user.getPersona_id());
 		Map<String, Object> datos= new HashMap<>();
 		datos.put("iduser", user.getPersona_id());
 		datos.put("nombre", per.getNombres());
+		datos.put("apellidos",per.getApellidos());
 		datos.put("user", user.getUsername());
 		datos.put("accesos", accesos);
 		((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(datos);

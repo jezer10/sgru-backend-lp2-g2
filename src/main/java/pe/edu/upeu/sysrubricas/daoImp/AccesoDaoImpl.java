@@ -1,22 +1,20 @@
 package pe.edu.upeu.sysrubricas.daoImp;
 
-import java.sql.Types;
-import java.util.List;
-import java.util.Map;
-
+import oracle.jdbc.OracleTypes;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.ColumnMapRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.SqlOutParameter;
-import org.springframework.jdbc.core.SqlParameter;
+import org.springframework.jdbc.core.*;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
-
-import oracle.jdbc.OracleTypes;
 import pe.edu.upeu.sysrubricas.dao.AccesoDao;
 import pe.edu.upeu.sysrubricas.entity.Acceso;
+
+import java.sql.Types;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+
 @Repository
 public class AccesoDaoImpl implements AccesoDao {
 	@Autowired
@@ -72,6 +70,17 @@ public class AccesoDaoImpl implements AccesoDao {
 						new SqlParameter("idcc", Types.INTEGER));
 		SqlParameterSource in = new MapSqlParameterSource().addValue("ID", id);
 		return simpleJdbcCall.execute(in);
+	}
+
+	@Override
+	public List<Acceso> getAccesosbyid(int id) {
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+				.withCatalogName("D_CRUD_ACCESO_PRUEBA")
+				.withProcedureName("SPP_GET_ACCESO_BYID")
+				.returningResultSet("OUT_ACCESO",
+						BeanPropertyRowMapper.newInstance(Acceso.class));
+		Map in = Collections.singletonMap("IN_PERSONA_ID",id);
+		return simpleJdbcCall.executeObject(List.class,in);
 	}
 
 }

@@ -15,4 +15,6 @@ public interface AccesoDao {
 	List<Map<String, Object>> readAll();
 	Map<String,Object> readAllSubMains(int id);
 	Map<String, Object> readAll(String username);
+
+	List<Acceso> getAccesosbyid(int id);
 }
