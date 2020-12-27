@@ -9,6 +9,7 @@ import java.sql.SQLOutput;
 
 public class SqlAlternativa extends Alternativa implements SQLData {
 
+
     @Override
     public String getSQLTypeName() throws SQLException {
         return "D_CRUD_ALTERNATIVAS.ALTERNATIVA_TYPE";
@@ -30,4 +31,5 @@ public class SqlAlternativa extends Alternativa implements SQLData {
         sqlOutput.writeString(getCorrecta_estado());
         sqlOutput.writeString(getNombre());
     }
+
 }

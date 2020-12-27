@@ -1,7 +1,10 @@
 package pe.edu.upeu.sysrubricas.controller;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,8 +19,8 @@ import pe.edu.upeu.sysrubricas.entity.Semestre;
 import pe.edu.upeu.sysrubricas.service.SemestreService;
 
 @RestController
-@CrossOrigin(origins = "*")
-@RequestMapping("/api/semestre")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RequestMapping(value = "/api/semestre", produces = MediaType.APPLICATION_JSON_VALUE)
 
 public class SemestreController {
 
@@ -57,6 +60,13 @@ public class SemestreController {
 		s.setSemestre_id(id);
 		return semestreservice.update(s);
 
+	}
+
+	@GetMapping
+	public Map<String, List<Semestre>> getSemestres(){
+		Map<String,List<Semestre>> semestres = new HashMap<>();
+		semestres.put("semestres",semestreservice.getSemestres());
+		return semestres;
 	}
 	
 }

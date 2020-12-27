@@ -1,15 +1,13 @@
 package pe.edu.upeu.sysrubricas.daoImp;
 
-import java.util.Map;
-
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-
-import com.google.gson.Gson;
-
 import pe.edu.upeu.sysrubricas.entity.Usuario;
+
+import java.util.Map;
 
 @Repository
 public class UsuarioDaoImpl implements pe.edu.upeu.sysrubricas.dao.UsuarioDao {

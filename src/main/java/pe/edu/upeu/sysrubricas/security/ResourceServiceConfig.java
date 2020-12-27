@@ -29,7 +29,8 @@ public class ResourceServiceConfig extends ResourceServerConfigurerAdapter{
 	@Bean
 	public CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration config = new CorsConfiguration();
-		config.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
+
+		config.setAllowedOrigins(Arrays.asList("http://localhost:4200","http://sysrub.s3-website-us-east-1.amazonaws.com"));
 		config.setAllowedMethods(Arrays.asList("GET","POST","PUT","DELETE","OPTIONS"));
 		config.setAllowCredentials(true);
 		config.setAllowedHeaders(Arrays.asList("Content-Type","Authorization"));

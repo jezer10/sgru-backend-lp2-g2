@@ -1,8 +1,6 @@
 package pe.edu.upeu.sysrubricas.daoImp;
 
-import java.sql.Types;
-import java.util.Map;
-
+import oracle.jdbc.internal.OracleTypes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.ColumnMapRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -12,10 +10,11 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
-
-import oracle.jdbc.internal.OracleTypes;
 import pe.edu.upeu.sysrubricas.dao.DocenteEvaluadorPersonaDao;
 import pe.edu.upeu.sysrubricas.entity.DocenteEvaluadorPersona;
+
+import java.sql.Types;
+import java.util.Map;
 
 @Repository
 public class DocenteEvaluadorPersonaDaoImp implements DocenteEvaluadorPersonaDao {

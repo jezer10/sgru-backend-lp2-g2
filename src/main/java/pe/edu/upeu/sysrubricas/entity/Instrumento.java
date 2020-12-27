@@ -11,9 +11,13 @@ import lombok.ToString;
 @AllArgsConstructor
 @Data
 public class Instrumento {
-     int instrumento_id;
-     int semestre_id;
-     int cl_id;
-     int estado;
-     
+     private int instrumento_id;
+     private int semestre_id;
+     private int cl_id;
+     private int utils_id;
+     private String titulo;
+     private String descripcion;
+     private int estado;
+
 }
+

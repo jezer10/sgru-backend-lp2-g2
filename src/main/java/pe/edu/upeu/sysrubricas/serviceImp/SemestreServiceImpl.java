@@ -1,5 +1,6 @@
 package pe.edu.upeu.sysrubricas.serviceImp;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,5 +45,10 @@ public class SemestreServiceImpl implements SemestreService{
 	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
 		return semestredao.readAll();
+	}
+
+	@Override
+	public List<Semestre> getSemestres() {
+		return semestredao.getSemestres();
 	}
 }

@@ -1,26 +1,21 @@
 package pe.edu.upeu.sysrubricas.daoImp;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import com.google.gson.Gson;
 import oracle.jdbc.internal.OracleTypes;
-import pe.edu.upeu.sysrubricas.dao.RolDao;
-import pe.edu.upeu.sysrubricas.entity.Rol;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.ColumnMapRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.SqlOutParameter;
-import org.springframework.jdbc.core.SqlParameter;
+import org.springframework.jdbc.core.*;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
+import pe.edu.upeu.sysrubricas.dao.RolDao;
+import pe.edu.upeu.sysrubricas.entity.Rol;
 
-import com.google.gson.Gson;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 
 @Component

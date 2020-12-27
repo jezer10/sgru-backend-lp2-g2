@@ -1,9 +1,9 @@
 package pe.edu.upeu.sysrubricas.daoImp;
 
-import java.util.Map;
-
 import pe.edu.upeu.sysrubricas.dao.DocenteEvaluadorDao;
 import pe.edu.upeu.sysrubricas.entity.DocenteEvaluador;
+
+import java.util.Map;
 
 public class DocenteEvaluadorDaoImp implements DocenteEvaluadorDao {
 

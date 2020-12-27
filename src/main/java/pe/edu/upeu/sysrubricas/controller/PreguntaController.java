@@ -15,6 +15,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+
+
 
 @RestController
 @RequestMapping(value = "/api/pregunta", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -48,7 +51,6 @@ public class PreguntaController {
         pregunta.setPregunta_id(preguntaService.createPregunta(pregunta));
         return new ResponseEntity<>(pregunta,HttpStatus.CREATED);
     }
-
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)

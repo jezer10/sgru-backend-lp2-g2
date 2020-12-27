@@ -13,8 +13,6 @@ import pe.edu.upeu.sysrubricas.dao.InstrumentoDao;
 import pe.edu.upeu.sysrubricas.entity.Instrumento;
 import pe.edu.upeu.sysrubricas.sql.SqlInstrumento;
 
-import java.sql.CallableStatement;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
@@ -33,8 +31,8 @@ public class InstrumentoDaoImp implements InstrumentoDao {
         simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
                 .withCatalogName("D_CRUD_INSTRUMENTO")
                 .withProcedureName("SPP_CREATE_INSTRUMENTO")
-                .declareParameters(new SqlParameter("INS", OracleTypes.STRUCT,"INSTRUMENTO_TYPE"));
-        Map<String,Object> in = Collections.singletonMap("INS",instrumento);
+                .declareParameters(new SqlParameter("INS",OracleTypes.STRUCT,"INSTRUMENTO_TYPE"));
+        Map in = Collections.singletonMap("INS",instrumento);
         simpleJdbcCall.execute(in);
 
     }
@@ -45,7 +43,7 @@ public class InstrumentoDaoImp implements InstrumentoDao {
                 .withCatalogName("D_CRUD_INSTRUMENTO")
                 .withProcedureName("SPP_UPDATE_INSTRUMENTO")
                 .declareParameters(new SqlParameter("INS",OracleTypes.STRUCT,"INSTRUMENTO_TYPE"));
-        Map<String,Object> in = Collections.singletonMap("INS",instrumento);
+        Map in = Collections.singletonMap("INS",instrumento);
         simpleJdbcCall.execute(in);
     }
 
@@ -57,9 +55,11 @@ public class InstrumentoDaoImp implements InstrumentoDao {
                 .declareParameters(new SqlOutParameter("OUT_INSTRUMENTO",OracleTypes.STRUCT,"INSTRUMENTO_TYPE",
                         new SqlReturnStruct(Instrumento.class))
                 );
+        /*
+        callableStmt = conn.prepareCall("{? = call F_GET_INSTRUMENTO(?)}");
+        callableStmt.registerOutParameter(1, OracleTypes.STRUCT,"INSTRUMENTO_TYPE");*/
 
-
-        Map<String,Object> in = Collections.singletonMap("INS_ID",id);
+        Map in = Collections.singletonMap("INS_ID",id);
         return simpleJdbcCall.executeObject(Instrumento.class,in);
     }
 
@@ -72,5 +72,30 @@ public class InstrumentoDaoImp implements InstrumentoDao {
                         BeanPropertyRowMapper.newInstance(Instrumento.class));
 
         return simpleJdbcCall.executeObject(List.class,Collections.emptyMap());
+    }
+
+    @Override
+    public List<Instrumento> getInstrumentosxsem(int id) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withCatalogName("D_CRUD_INSTRUMENTO")
+                .withProcedureName("SPP_GET_INSTRUMENTOXSEMESTRE")
+                .returningResultSet("OUT_INSTRUMENTOXPLAN_CUR",
+                        BeanPropertyRowMapper.newInstance(Instrumento.class));
+        Map in = Collections.singletonMap("IDSEM",id);
+
+        return  simpleJdbcCall.executeObject(List.class,in);
+    }
+
+    @Override
+    public void deleteInstrumento(int id) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withCatalogName("D_CRUD_INSTRUMENTO")
+                .withProcedureName("SPP_DELETE_INSTRUMENTO")
+                .declareParameters(
+                        new SqlParameter("IN_INSTRUMENTO_ID",OracleTypes.NUMBER)
+                );
+        Map in = Collections.singletonMap("IN_INSTRUMENTO_ID",id);
+
+        simpleJdbcCall.execute(in);
     }
 }

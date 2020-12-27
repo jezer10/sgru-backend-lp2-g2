@@ -15,10 +15,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+
 @RestController
 @RequestMapping(value = "/api/alternativa", produces = MediaType.APPLICATION_JSON_VALUE)
 public class AlternativaController {
-
     @Autowired
     private AlternativaService alternativaService;
 
